@@ -419,7 +419,13 @@ export interface SendPlayerMessageResponse extends SuccessResponse {
 }
 
 export interface SendPlayerMessageRequestBase {
-    SendType: string;
+    SendType:
+    | "PlayerChat"
+    | "PlayerGlobalChat"
+    | "PlayerGuildChat"
+    | "PlayerLogNormal"
+    | "PlayerLogImportant"
+    | "PlayerLogVeryImportant";
     Message: string;
 }
 
