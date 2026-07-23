@@ -1,0 +1,6 @@
+.vscode/
+node_modules/
+tests/
+src/
+package-lock.json
+vitest.config.ts
