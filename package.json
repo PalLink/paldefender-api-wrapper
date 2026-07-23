@@ -1,0 +1,36 @@
+{
+  "name": "paldefender-api-wrapper",
+  "version": "1.0.0",
+  "description": "TypeScript API Wrapper for the PalDefender REST API",
+  "keywords": [
+    "paldefender",
+    "palworld",
+    "api",
+    "wrapper"
+  ],
+  "homepage": "https://github.com/PalLink/PalDefender-API-Wrapper#readme",
+  "bugs": {
+    "url": "https://github.com/PalLink/PalDefender-API-Wrapper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PalLink/PalDefender-API-Wrapper.git"
+  },
+  "license": "MIT",
+  "author": "GlitchApotamus",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  },
+  "maintainers": [
+    "GlitchApotamus"
+  ]
+}
