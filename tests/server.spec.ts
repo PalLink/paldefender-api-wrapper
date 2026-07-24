@@ -79,12 +79,12 @@ describe("ServerAPI", () => {
     it("calls SendPlayerMessage", async () => {
         fetchMock.mockResolvedValueOnce(createResponse({ Success: true, SentCount: 1 }));
 
-        await client.server.sendPlayerMessage({ SendType: "Message", Message: "Hi", UserID: "uid" });
+        await client.server.sendPlayerMessage({ SendType: "PlayerChat", Message: "Hi", UserID: "uid" });
 
         expect(fetchMock).toHaveBeenCalledWith(
             "http://127.0.0.1:13997/v1/pdapi/SendPlayerMessage",
             expect.objectContaining({
-                body: JSON.stringify({ SendType: "Message", Message: "Hi", UserID: "uid" }),
+                body: JSON.stringify({ SendType: "PlayerChat", Message: "Hi", UserID: "uid" }),
             }),
         );
     });
