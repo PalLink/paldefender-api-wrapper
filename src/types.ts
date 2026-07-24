@@ -429,10 +429,11 @@ export interface SendPlayerMessageRequestBase {
     Message: string;
 }
 
-export type SendPlayerMessageRequest = SendPlayerMessageRequestBase & (
-    | { UserID: string; UserIDs?: undefined }
-    | { UserIDs: string[]; UserID?: undefined }
-);
+type ExclusiveUserTarget =
+    | { UserID: string; UserIDs?: never }
+    | { UserIDs: string[]; UserID?: never };
+
+export type SendPlayerMessageRequest = SendPlayerMessageRequestBase & ExclusiveUserTarget;
 
 export interface GiveItemGrant {
     ItemID: ItemId;
