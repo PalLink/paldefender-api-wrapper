@@ -283,6 +283,19 @@ export interface GiveProgressionTotals {
     AncientTechnologyPoints?: number;
 }
 
+export interface GivePayload {
+    UserID: string;
+    EXP?: number;
+    Items?: GiveItemGrant[];
+    PalEggs?: GivePalEggGrant[];
+    Pals?: GivePalGrant[];
+    PalTemplates?: string[];
+    Relics?: Record<string, number>;
+    TechnologyPoints?: number;
+    AncientTechnologyPoints?: number;
+    UnlockTechnologies?: TechnologyId[];
+}
+
 export type GiveDeprecatedResponse = unknown;
 
 export interface GuildResponse {
