@@ -71,11 +71,12 @@ export interface PlayersResponse {
     Players: Player[];
 }
 
-interface Admin {
+export interface Admin {
     id: string;
     name: string;
 }
-interface Camp {
+
+export interface Camp {
     id: string;
     world_pos: Vector3;
     map_pos: Vector3;
@@ -89,7 +90,7 @@ export interface Guild {
     member_count: number;
     members: string[];
 }
-interface GuildsMeta {
+export interface GuildsMeta {
     GuildCount: number;
 }
 export interface Guilds {
@@ -98,21 +99,21 @@ export interface Guilds {
 }
 
 export interface BanList {
-    Banlist: Banlist
+    Banlist: Banlist;
 }
-interface Banlist {
+export interface Banlist {
     Version: number;
     BannedMessage: string;
     UserEntries: UserEntries;
     IPEntries: IPEntries;
 }
-interface UserEntries {
+export interface UserEntries {
     UserId: string;
     Active: boolean;
     BannedBy: Issuer;
     UnBannedBy: Issuer;
 }
-interface IPEntries {
+export interface IPEntries {
     IP: string;
     Active: boolean;
     BannedBy: Issuer;
@@ -123,14 +124,14 @@ type IssuerType =
     | "player"
     | "system"
 
-interface Issuer {
+export interface Issuer {
     Type: IssuerType;
     NameValue: string;
     IP: string;
     Reason: string;
     Timestamp: Timestamp
 }
-interface Timestamp {
+export interface Timestamp {
     UTC: number;
     Year: number;
     Month: number;
@@ -145,41 +146,41 @@ export interface ProgressionResponse {
     Meta: ProgressionMeta;
     Progression: Progression;
 }
-interface ProgressionMeta {
+export interface ProgressionMeta {
     PlayerUID: string;
     Player: string;
 }
-interface Progression {
+export interface Progression {
     Player: ProPlayer;
     Currencies: ProCurrencies;
     Bosses: ProBosses;
     Captures: ProCaptures;
     Activities: ProActivities;
 }
-interface ProPlayer {
+export interface ProPlayer {
     level: number;
     exp: number;
     unusedStatusPoints: number;
 }
-interface ProCurrencies {
+export interface ProCurrencies {
     relics: { id: string, count: number };
     technologyPoints: number;
     ancientTechnologyPoints: number;
 }
-interface ProBosses {
+export interface ProBosses {
     towerBossDefeatCounts: { id: string, count: number };
     normalBossDefeatFlags: { id: string, flag: boolean };
     raidBossDefeatCounts: { id: string, count: number };
     totalBossDefeatCount: number;
     predatorDefeatCount: number;
 }
-interface ProCaptures {
+export interface ProCaptures {
     tribeCaptureCount: number;
     palCaptureCounts: { id: string, count: number };
     palCaptureBonusCounts: { id: string, count: number };
     palButcherCounts: { id: string, count: number };
 }
-interface ProActivities {
+export interface ProActivities {
     craftItemCounts: { id: string, count: number };
     normalDungeonClearCount: number;
     fixedDungeonClearCount: number;
