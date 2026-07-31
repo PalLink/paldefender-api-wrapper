@@ -55,7 +55,7 @@ jobs:
       - name: Create npm tarball
         id: pack
         run: |
-          FILE_NAME=$(npm pack)
+          FILE_NAME=$(npm pack --json --ignore-scripts | node -e "const fs=require('fs'); const input=fs.readFileSync(0,'utf8'); const result=JSON.parse(input); process.stdout.write(result[0].filename);")
           echo "file_name=$FILE_NAME" >> "$GITHUB_OUTPUT"
 
       - name: Upload tarball to release
