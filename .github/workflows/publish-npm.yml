@@ -55,12 +55,23 @@ jobs:
       - name: Build package
         run: npm run build
 
+      - name: Detect npm auth mode
+        id: npm_auth
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [[ -n "$NPM_TOKEN" ]]; then
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Publish package (NPM_TOKEN)
-        if: ${{ secrets.NPM_TOKEN != '' }}
+        if: steps.npm_auth.outputs.has_token == 'true'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish package (trusted publishing)
-        if: ${{ secrets.NPM_TOKEN == '' }}
+        if: steps.npm_auth.outputs.has_token != 'true'
         run: npm publish --provenance --access public
